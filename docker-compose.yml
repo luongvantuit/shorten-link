@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: luongvantuit/slink
+    container_name: sl
+    ports:
+      - "8000:8000"
+    tty: true
+    depends_on:
+      - db
+    networks:
+      - sl_nw
+  db:
+    image: postgres:14.6-alpine
+    container_name: sl_db
+    networks:
+      - sl_nw
+
+networks:
+  sl:
+    driver: bridge
+    name: sl_nw
