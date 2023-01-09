@@ -1,0 +1,3 @@
+USE sl
+
+CREATE TABLE IF NOT EXISTS link (originalUrl VARCHAR(255)) 
